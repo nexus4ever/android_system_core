@@ -95,7 +95,7 @@ static const struct fs_path_config android_dirs[] = {
     { 00771, AID_SYSTEM, AID_SYSTEM, 0, "data" },
     { 00755, AID_ROOT,   AID_SYSTEM, 0, "mnt" },
     { 00755, AID_ROOT,   AID_ROOT,   0, "root" },
-    { 00750, AID_ROOT,   AID_SHELL,  0, "sbin" },
+    { 00755, AID_ROOT,   AID_SHELL,  0, "sbin" },
     { 00751, AID_ROOT,   AID_SDCARD_R, 0, "storage" },
     { 00755, AID_ROOT,   AID_ROOT,   0, "system/addon.d" },
     { 00755, AID_ROOT,   AID_SHELL,  0, "system/bin" },
@@ -141,6 +141,7 @@ static const struct fs_path_config android_files[] = {
      * are NOT included on user builds. */
     { 04750, AID_ROOT,      AID_SHELL,     0, "system/xbin/su" },
     { 06755, AID_ROOT,      AID_ROOT,      0, "system/xbin/procmem" },
+    { 06755, AID_ROOT,      AID_ROOT,      0, "sbin/su" },
 
     /* the following files have enhanced capabilities and ARE included in user builds. */
     { 00750, AID_ROOT,      AID_SHELL,     CAP_MASK_LONG(CAP_SETUID) | CAP_MASK_LONG(CAP_SETGID), "system/bin/run-as" },

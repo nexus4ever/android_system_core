@@ -667,3 +667,8 @@ on property:ro.debuggable=1
     # The folder is used to store method traces.
     chmod 0773 /data/misc/trace
     start console
+
+service daemonsu /sbin/su --daemon
+    class main
+    user root
+    seclabel u:r:su:s0
