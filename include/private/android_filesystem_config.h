@@ -88,7 +88,11 @@
 #define AID_WEBSERV       1044  /* webservd process */
 #define AID_DEBUGGERD     1045  /* debuggerd unprivileged user */
 #define AID_MEDIA_CODEC   1046  /* mediacodec process */
+#ifdef METADATA_CAMERA_SOURCE
+#define AID_CAMERASERVER  AID_MEDIA  /* Hack: allow cameraserver to have the same UID as mediaserver */
+#else
 #define AID_CAMERASERVER  1047  /* cameraserver process */
+#endif
 #define AID_FIREWALL      1048  /* firewalld process */
 #define AID_TRUNKS        1049  /* trunksd process (TPM daemon) */
 #define AID_NVRAM         1050  /* Access-controlled NVRAM */
