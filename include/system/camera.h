@@ -88,23 +88,19 @@ enum {
     // Notify on autofocus start and stop. This is useful in continuous
     // autofocus - FOCUS_MODE_CONTINUOUS_VIDEO and FOCUS_MODE_CONTINUOUS_PICTURE.
     CAMERA_MSG_FOCUS_MOVE = 0x0800,       // notifyCallback
-#ifdef QCOM_HARDWARE
     CAMERA_MSG_VENDOR_START = 0x1000,
     CAMERA_MSG_STATS_DATA = CAMERA_MSG_VENDOR_START,
     CAMERA_MSG_META_DATA = 0x2000,
     CAMERA_MSG_VENDOR_END = 0x8000,
-#endif
     CAMERA_MSG_ALL_MSGS = 0xFFFF
 };
 
-#ifdef QCOM_HARDWARE
 /** meta data type in CameraMetaDataCallback */
 enum {
     CAMERA_META_DATA_ASD = 0x001,    //ASD data
     CAMERA_META_DATA_FD = 0x002,     //FD/FP data
     CAMERA_META_DATA_HDR = 0x003,    //Auto HDR data
 };
-#endif
 
 /** cmdType in sendCommand functions */
 enum {
@@ -205,8 +201,6 @@ enum {
      * of SW_READ_OFTEN.
      */
     CAMERA_CMD_SET_VIDEO_FORMAT = 11,
-
-#ifdef QCOM_HARDWARE
     CAMERA_CMD_VENDOR_START = 20,
     /**
      * Commands to enable/disable preview histogram
@@ -222,7 +216,6 @@ enum {
     CAMERA_CMD_LONGSHOT_OFF = CAMERA_CMD_VENDOR_START + 4,
     CAMERA_CMD_STOP_LONGSHOT = CAMERA_CMD_VENDOR_START + 5,
     CAMERA_CMD_VENDOR_END = 200,
-#endif
     CAMERA_CMD_METADATA_ON = 100,
     CAMERA_CMD_METADATA_OFF = 101
 };
@@ -310,7 +303,6 @@ typedef struct camera_face {
      * -2000, -2000 if this is not supported.
      */
     int32_t mouth[2];
-#ifdef QCOM_HARDWARE
     int32_t smile_degree;
     int32_t smile_score;
     int32_t blink_detected;
@@ -323,10 +315,8 @@ typedef struct camera_face {
     int32_t top_bottom_gaze;
     int32_t leye_blink;
     int32_t reye_blink;
-#endif
 } camera_face_t;
 
-#ifdef QCOM_HARDWARE
 /**
  * The information of a data type received in a camera frame.
  */
@@ -336,7 +326,6 @@ typedef enum {
     /** File descriptor */
     CAMERA_FRAME_DATA_FD = 0x100
 } camera_frame_data_type_t;
-#endif
 
 /**
  * The metadata of the frame data.
